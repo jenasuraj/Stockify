@@ -1,0 +1,5 @@
+  """
+    print("Display Name:", subreddit.display_name)
+    print("Title:", subreddit.title)
+    print("Description:", subreddit.description)
+    """
