@@ -1,16 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { Roboto_Condensed } from 'next/font/google';
-const robotoCondensed = Roboto_Condensed({
-  subsets: ['latin'],
-  weight: ['400', '700'], // optional weights
-  display: 'swap',
-});
+
 
 const Section1 = () => {
   return (
    <>
-     <section className={`h-[90vh] w-full  mt-15 flex justify-center items-center px-6 ${robotoCondensed.className}`}>
+     <section className={`h-[90vh] w-full  mt-15 flex justify-center items-center px-6 `}>
         <header className="flex flex-col items-center text-center gap-6 max-w-3xl text-black">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-snug">
             Welcome to <span className="text-red-600">Stockify</span>, <br className="hidden md:block" />

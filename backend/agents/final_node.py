@@ -35,7 +35,23 @@ Instructions:
 - Carefully extract PE ratio, ROE, EPS, and Market Capital from the technical section.
 - Summarize the news and social commentary (4-5 lines max) in plain paragraph text.
 - In the conclusion, clearly say whether to invest or not and why — based on both technicals and news.
-
+Special Message:
+-please do very fine work at technical_data and provide numbers only not any random values like:
+-Example format that has to be avoided:
+"technical_data": {{
+    "PE_RATIO": "25.574661",
+    "ROE": "52.164%",
+    "EPS": "\u20b9134.34",
+    "MARKET_CAPITAL": "\u20b912,43,067.13 crore (approximately $124.31 billion USD)"
+  }},
+Example format that has to be followed:
+"technical_data": {{
+    "PE_RATIO": "25.574661",
+    "ROE": "52.164%",
+    "EPS": "9134.34",
+    "MARKET_CAPITAL": "912,43,067.13"
+  }},
+  
 Now extract from the following:
 {parsing_data}
 """
