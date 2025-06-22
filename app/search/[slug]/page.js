@@ -14,8 +14,24 @@ const page = () => {
   const pe_ratio = parseInt(data.technical_data.PE_RATIO)
   const roe = parseFloat(data.technical_data.ROE)
   const eps = parseInt(data.technical_data.EPS)
-  const mc = parseInt(data.technical_data.MARKET_CAPITAL)
   const conclusion = data.conclusion
+  
+  //console.log("money in search is",data.technical_data.MARKET_CAPITAL," and the type is",typeof(data.technical_data.MARKET_CAPITAL))
+  const money = data.technical_data.MARKET_CAPITAL.split(',')
+  const updatedmoney = money.join('')  
+  let removeCr = ''
+  for (const char of updatedmoney) {
+     if(char == '.')
+      {
+        break
+      } 
+  if(parseInt(char) || char == '0')
+    {
+      removeCr = removeCr + char
+    }
+  }
+  const mc = parseInt(removeCr)
+
 
   return (
     <section className="w-full min-h-screen bg-[#f9fafb] flex flex-col md:flex-row text-gray-800">
@@ -72,15 +88,15 @@ const page = () => {
 
           {/* Market Cap Box */}
           <div className="bg-white rounded-3xl shadow-md w-full p-6 flex flex-col items-center">
-            {mc > 2000000000000 ? <Lottie animationData={up} style={{ height: 150 }} />
-              : mc >= 500000000000 ? <Lottie animationData={stable} style={{ height: 150 }} />
-              : mc < 500000000000 ? <Lottie animationData={down} style={{ height: 150 }} />
+            {mc > 50000 ? <Lottie animationData={up} style={{ height: 150 }} />
+              : mc >=10000 && mc<50000 ? <Lottie animationData={stable} style={{ height: 150 }} />
+              : mc < 10000? <Lottie animationData={down} style={{ height: 150 }} />
               : <Lottie animationData={error} loop />}
             <p className={`mt-4 text-lg font-semibold px-5 py-2 rounded-full 
-              ${mc > 2000000000000 ? 'bg-green-500 text-white' :
-                mc >= 500000000000 ? 'bg-blue-600 text-white' :
+              ${mc > 50000 ? 'bg-green-500 text-white' :
+                mc >=10000 && mc<50000 ? 'bg-blue-600 text-white' :
                   'bg-red-500 text-white'}`}>
-              MARKET CAPITAL = {mc}
+              MARKET CAPITAL = {data.technical_data.MARKET_CAPITAL}
             </p>
           </div>
         </div>

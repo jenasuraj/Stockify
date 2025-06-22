@@ -49,12 +49,13 @@ Example format that has to be followed:
     "PE_RATIO": "25.574661",
     "ROE": "52.164%",
     "EPS": "9134.34",
-    "MARKET_CAPITAL": "912,43,067.13"
+    "MARKET_CAPITAL": "912,43,067.13Cr"
   }},
-  
+-Listen: make sure the money in market capital has to contain cr i.e you can't put 10,00,000 in market capital but can put 0.1 cr cuz 1.0 will be 1 cr. 
 Now extract from the following:
 {parsing_data}
 """
+
 
 fp_prompt=PromptTemplate.from_template(parsing_template)
 final_parsing_chain = fp_prompt | llm
